@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial release of skill-forge-mcp
+- Initial release of SkillForge MCP
 - MCP server exposing 9-phase Agent Skill creation guide
 - Resources: `process://manifest`, `process://phase/{0-8}`
 - Resource templates for section and batch retrieval

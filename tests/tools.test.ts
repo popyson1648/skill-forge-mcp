@@ -185,7 +185,7 @@ function createTestServer() {
           role: "user",
           content: {
             type: "text",
-            text: `I want to create an Agent Skill for: "${topic}"\n\nPlease follow the skill-forge-mcp process.`,
+            text: `I want to create an Agent Skill for: "${topic}"\n\nPlease follow the SkillForge MCP process.`,
           },
         },
       ],

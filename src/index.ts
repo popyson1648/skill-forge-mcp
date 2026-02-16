@@ -334,7 +334,7 @@ server.registerPrompt(
           text: [
             `I want to create an Agent Skill for: "${topic}"`,
             "",
-            "Please follow the skill-forge-mcp process:",
+            "Please follow the SkillForge MCP process:",
             "1. Read process://manifest to understand the full 9-phase workflow",
             "2. Start from Phase 0 to understand the SKILL.md specification",
             "3. Work through each phase sequentially (Phase 1→8)",
@@ -397,7 +397,7 @@ async function runServer() {
   });
 
   await server.connect(transport);
-  console.error("skill-forge-mcp server running on stdio");
+  console.error("SkillForge MCP server running on stdio");
 }
 
 runServer().catch((error) => {
