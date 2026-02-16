@@ -1,36 +1,21 @@
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import manifestEn from "./content/manifest.json" with { type: "json" };
-import manifestJa from "./content-ja/manifest.json" with { type: "json" };
+import manifest from "./content/manifest.json" with { type: "json" };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-type Locale = "en" | "ja";
-
-/** Resolve the active locale from SKILL_FORGE_LANG env var */
-export function getLocale(): Locale {
-  const env = (process.env.SKILL_FORGE_LANG ?? "en").toLowerCase();
-  return env === "ja" ? "ja" : "en";
+/** Get the manifest */
+export function getManifest() {
+  return manifest;
 }
 
-/** Get the manifest for the active locale */
-export function getManifest(locale?: Locale) {
-  const l = locale ?? getLocale();
-  return l === "ja" ? manifestJa : manifestEn;
-}
-
-/** Default export for backwards compatibility */
-const manifest = manifestEn;
-
-function contentDir(locale?: Locale): string {
-  const l = locale ?? getLocale();
-  const dir = l === "ja" ? "content-ja" : "content";
-  return join(__dirname, dir);
+function contentDir(): string {
+  return join(__dirname, "content");
 }
 
 /** Return full content of a phase file */
-export function loadPhaseContent(phaseId: number, locale?: Locale): string {
+export function loadPhaseContent(phaseId: number): string {
   if (!Number.isInteger(phaseId) || phaseId < 0 || phaseId > 8) {
     const error = new Error(
       `Phase ${phaseId} does not exist. Valid range: 0-8`,
@@ -38,15 +23,7 @@ export function loadPhaseContent(phaseId: number, locale?: Locale): string {
     (error as Error & { code: number }).code = -32002;
     throw error;
   }
-  const dir = contentDir(locale);
-  const filePath = join(dir, `phase_${phaseId}.md`);
-  // Fallback to English if localized file doesn't exist
-  if (!existsSync(filePath)) {
-    return readFileSync(
-      join(__dirname, "content", `phase_${phaseId}.md`),
-      "utf-8",
-    );
-  }
+  const filePath = join(contentDir(), `phase_${phaseId}.md`);
   return readFileSync(filePath, "utf-8");
 }
 
@@ -54,10 +31,9 @@ export function loadPhaseContent(phaseId: number, locale?: Locale): string {
 export function extractSection(
   phaseId: number,
   sectionName: string,
-  locale?: Locale,
 ): string {
-  const content = loadPhaseContent(phaseId, locale);
-  const m = getManifest(locale);
+  const content = loadPhaseContent(phaseId);
+  const m = getManifest();
   const phaseManifest = m.phases[phaseId];
 
   if (sectionName === "overview") {
@@ -148,4 +124,4 @@ function findSuggestion(
   return bestCandidate;
 }
 
-export { manifest, findSuggestion, type Locale };
+export { manifest, findSuggestion };

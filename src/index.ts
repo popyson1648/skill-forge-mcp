@@ -8,7 +8,6 @@ import { z } from "zod";
 
 import {
   extractSection,
-  getLocale,
   getManifest,
   loadPhaseContent,
 } from "./content.js";
@@ -16,9 +15,8 @@ import { formatSearchResults, searchAllPhases } from "./search.js";
 import { loadState, saveState } from "./state.js";
 import { formatStatusTable } from "./status.js";
 
-// Resolve locale once at startup
-const locale = getLocale();
-const manifest = getManifest(locale);
+// Load manifest
+const manifest = getManifest();
 
 // Initialize state (restore from file if persistence enabled, or create new)
 const state = loadState();
@@ -74,7 +72,7 @@ for (const phase of manifest.phases) {
           {
             uri: uri.href,
             mimeType: "text/markdown",
-            text: loadPhaseContent(phase.id, locale),
+            text: loadPhaseContent(phase.id),
           },
         ],
       };
@@ -107,7 +105,7 @@ server.resource(
       throw error;
     }
 
-    const text = extractSection(phaseId, sectionName, locale);
+    const text = extractSection(phaseId, sectionName);
     state.accessLog.entries.push({
       timestamp: new Date().toISOString(),
       uri: uri.href,
@@ -153,7 +151,7 @@ server.resource(
     const contents = ids.map((id) => ({
       uri: `process://phase/${id}`,
       mimeType: "text/markdown" as const,
-      text: loadPhaseContent(id, locale),
+      text: loadPhaseContent(id),
     }));
 
     for (const id of ids) {
@@ -207,7 +205,7 @@ server.registerTool(
     },
   },
   async ({ query, maxResults }) => {
-    const results = searchAllPhases(query, maxResults, locale);
+    const results = searchAllPhases(query, maxResults);
     return {
       content: [
         { type: "text" as const, text: formatSearchResults(query, results) },
@@ -292,7 +290,7 @@ server.registerTool(
     },
   },
   async () => {
-    const table = formatStatusTable(state, locale);
+    const table = formatStatusTable(state);
     const phases = manifest.phases.map(
       (phase: { id: number; name: string }) => {
         const p = state.progress[String(phase.id)];
