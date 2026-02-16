@@ -28,10 +28,7 @@ export function loadPhaseContent(phaseId: number): string {
 }
 
 /** Extract a specific section from a phase file */
-export function extractSection(
-  phaseId: number,
-  sectionName: string,
-): string {
+export function extractSection(phaseId: number, sectionName: string): string {
   const content = loadPhaseContent(phaseId);
   const m = getManifest();
   const phaseManifest = m.phases[phaseId];
