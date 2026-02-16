@@ -4,7 +4,7 @@
 [![CI](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-> [日本語](README.ja.md)
+[日本語](README.ja.md)
 
 An MCP server that exposes the [Agent Skill](https://github.com/anthropics/skills) creation guide (9 phases) as MCP resources.
 AI agents retrieve only the phases they need on demand and follow the process to build SKILL.md files.
