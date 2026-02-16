@@ -6,11 +6,7 @@ import {
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import {
-  extractSection,
-  getManifest,
-  loadPhaseContent,
-} from "./content.js";
+import { extractSection, getManifest, loadPhaseContent } from "./content.js";
 import { formatSearchResults, searchAllPhases } from "./search.js";
 import { loadState, saveState } from "./state.js";
 import { formatStatusTable } from "./status.js";
