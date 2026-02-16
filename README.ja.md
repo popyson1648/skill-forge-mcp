@@ -4,7 +4,7 @@
 [![CI](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-> [English](README.md)
+[English](README.md)
 
 [Agent Skill](https://github.com/anthropics/skills) の作成手順書（9 フェーズ）を MCP リソースとして提供するサーバーです。
 AI エージェントが必要なフェーズだけをオンデマンドで取得し、手順に沿って SKILL.md を作成できます。
