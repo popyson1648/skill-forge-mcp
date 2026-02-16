@@ -1,0 +1,162 @@
+{
+  "title": "Skill Creation Process",
+  "version": "1.0.0",
+  "overview": "Build any skill following the Phase 0→8 flow. Core principle: first discover what the agent fails at, then write only the minimal instructions to fill those failures.",
+  "total_phases": 9,
+  "phases": [
+    {
+      "id": 0,
+      "name": "Understanding the Skill Specification",
+      "description": "SKILL.md structure, frontmatter, Progressive Disclosure, invocation control. First time only.",
+      "depends_on": [],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 0: Understanding the Skill Specification (First Time Only)"
+        },
+        { "name": "structure", "heading": "SKILL.md Structure" },
+        { "name": "frontmatter", "heading": "Frontmatter (Required Header)" },
+        {
+          "name": "progressive-disclosure",
+          "heading": "Progressive Disclosure (3-Level Loading)"
+        },
+        { "name": "skill-types", "heading": "Skill Types" },
+        { "name": "freedom-levels", "heading": "Freedom Levels" },
+        { "name": "invocation-control", "heading": "Invocation Control" },
+        {
+          "name": "claude-code-specific",
+          "heading": "Claude Code Specific Advanced Features"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Scoping and Baseline",
+      "description": "Check existing skills, mechanism selection (CLAUDE.md / Prompt File / Skill), baseline measurement.",
+      "depends_on": [0],
+      "sections": [
+        { "name": "overview", "heading": "Phase 1: Scoping and Baseline" },
+        {
+          "name": "existing-skills",
+          "heading": "Step 1: Check Existing Skills"
+        },
+        {
+          "name": "mechanism-selection",
+          "heading": "Step 2: Mechanism Selection"
+        },
+        { "name": "baseline", "heading": "Step 3: Baseline Measurement" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Domain Foundation Research",
+      "description": "Define 'good', research authoritative theories, organize agent information needs, design workflow.",
+      "depends_on": [1],
+      "sections": [
+        { "name": "overview", "heading": "Phase 2: Domain Foundation Research" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gap Analysis",
+      "description": "Verify Phase 2 deliverables against 6 axes: theory→practice, completeness, judgment, verifiability, technology specificity, concreteness.",
+      "depends_on": [2],
+      "sections": [
+        { "name": "overview", "heading": "Phase 3: Gap Analysis" },
+        { "name": "criteria", "heading": "Evaluation Criteria" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Implementation-Level Deep Research",
+      "description": "Fill Phase 3 gaps. Patterns/code examples, standards/specs, techniques, anti-patterns, verification, tech stack specifics, concrete examples.",
+      "depends_on": [3],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 4: Implementation-Level Deep Research"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Structuring and Completeness Check",
+      "description": "Organize research results and verify all 8 categories are covered: theory, info requirements, process, patterns, anti-patterns, verification, tech stack, examples.",
+      "depends_on": [4],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 5: Structuring and Completeness Check"
+        },
+        { "name": "checklist", "heading": "Completeness Checklist" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Distillation into SKILL.md",
+      "description": "Condense all research into a practical skill of 500 lines or fewer. Filter → design decisions → distillation → writing.",
+      "depends_on": [5],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 6: Distillation into SKILL.md"
+        },
+        {
+          "name": "filter",
+          "heading": "Step 1: \"Does Claude Already Know This?\" Filter"
+        },
+        {
+          "name": "design-decisions",
+          "heading": "Step 2: Skill Design Decisions"
+        },
+        {
+          "name": "distillation",
+          "heading": "Step 3: Distillation and Writing"
+        },
+        { "name": "priority", "heading": "Distillation Priority" },
+        { "name": "writing-patterns", "heading": "Writing Patterns" },
+        {
+          "name": "content-guidelines",
+          "heading": "Content Writing Guidelines"
+        },
+        {
+          "name": "runtime-constraints",
+          "heading": "Runtime Environment Constraints"
+        },
+        { "name": "anti-patterns", "heading": "Writing Anti-patterns" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Deployment and Validation",
+      "description": "Place the skill in the appropriate location and verify specification compliance. Placement, cross-surface, security, validation.",
+      "depends_on": [6],
+      "sections": [
+        { "name": "overview", "heading": "Phase 7: Deployment and Validation" },
+        { "name": "placement", "heading": "Step 1: Determine Placement" },
+        {
+          "name": "cross-surface",
+          "heading": "Step 2: Cross-surface Considerations"
+        },
+        { "name": "security", "heading": "Step 3: Security Review" },
+        { "name": "validation", "heading": "Step 4: Validation" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Evaluation and Iteration",
+      "description": "Verify the skill actually works and improve it. Evaluation scenarios, A/B testing, iteration loop, troubleshooting.",
+      "depends_on": [7],
+      "sections": [
+        { "name": "overview", "heading": "Phase 8: Evaluation and Iteration" },
+        {
+          "name": "scenarios",
+          "heading": "Step 1: Build Evaluation Scenarios"
+        },
+        { "name": "ab-testing", "heading": "Step 2: A/B Testing Pattern" },
+        { "name": "iteration", "heading": "Step 3: Iteration Loop" },
+        { "name": "troubleshooting", "heading": "Troubleshooting" }
+      ]
+    }
+  ]
+}

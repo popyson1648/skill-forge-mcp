@@ -1,0 +1,135 @@
+{
+  "title": "スキル作成プロセス",
+  "version": "1.0.0",
+  "overview": "どんなテーマのスキルでも Phase 0→8 の流れで作る。核心: 先に「エージェントが何に失敗するか」を知り、失敗を埋める最小限の指示だけを書く。",
+  "total_phases": 9,
+  "phases": [
+    {
+      "id": 0,
+      "name": "スキル仕様の理解",
+      "description": "SKILL.md の構造、frontmatter、Progressive Disclosure、呼び出し制御。初回のみ必要。",
+      "depends_on": [],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 0: スキル仕様の理解（初回のみ）"
+        },
+        { "name": "structure", "heading": "SKILL.md の構造" },
+        { "name": "frontmatter", "heading": "Frontmatter（必須ヘッダー）" },
+        {
+          "name": "progressive-disclosure",
+          "heading": "Progressive Disclosure（3レベルのロード）"
+        },
+        { "name": "skill-types", "heading": "スキルの種類" },
+        { "name": "freedom-levels", "heading": "自由度の設定" },
+        { "name": "invocation-control", "heading": "呼び出し制御" },
+        {
+          "name": "claude-code-specific",
+          "heading": "Claude Code 固有の高度な機能"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "スコーピングとベースライン",
+      "description": "既存スキル確認、仕組み選択（CLAUDE.md / Prompt File / Skill）、ベースライン測定。",
+      "depends_on": [0],
+      "sections": [
+        {
+          "name": "overview",
+          "heading": "Phase 1: スコーピングとベースライン"
+        },
+        { "name": "existing-skills", "heading": "Step 1: 既存スキルの確認" },
+        { "name": "mechanism-selection", "heading": "Step 2: 仕組みの選択" },
+        { "name": "baseline", "heading": "Step 3: ベースライン測定" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "対象ドメインの基礎調査",
+      "description": "「良い」の定義、権威ある理論、エージェントが必要な情報の整理、作業フローの設計。",
+      "depends_on": [1],
+      "sections": [
+        { "name": "overview", "heading": "Phase 2: 対象ドメインの基礎調査" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ギャップ分析",
+      "description": "Phase 2 成果物でエージェントは実際に作業できるか検証。理論→実践、網羅性、判断力、検証可能性、技術固有性、具体性の6軸で評価。",
+      "depends_on": [2],
+      "sections": [
+        { "name": "overview", "heading": "Phase 3: ギャップ分析" },
+        { "name": "criteria", "heading": "判断軸" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "実装レベルの深掘り調査",
+      "description": "Phase 3 のギャップを埋める。パターン/コード例、標準/仕様、技術的手法、アンチパターン、検証手法、技術スタック固有、具体例。",
+      "depends_on": [3],
+      "sections": [
+        { "name": "overview", "heading": "Phase 4: 実装レベルの深掘り調査" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "構造化と完全性チェック",
+      "description": "調査結果を整理し、理論/情報要件/プロセス/パターン/アンチパターン/検証/技術スタック/具体例の8カテゴリが揃っているか確認。",
+      "depends_on": [4],
+      "sections": [
+        { "name": "overview", "heading": "Phase 5: 構造化と完全性チェック" },
+        { "name": "checklist", "heading": "完全性チェック表" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "SKILL.md への蒸留",
+      "description": "全調査結果を500行以下の実用的なスキルに凝縮。フィルタ→設計判断→蒸留→記述。",
+      "depends_on": [5],
+      "sections": [
+        { "name": "overview", "heading": "Phase 6: SKILL.md への蒸留" },
+        {
+          "name": "filter",
+          "heading": "Step 1: 「Claudeは既に知っているか？」フィルタ"
+        },
+        { "name": "design-decisions", "heading": "Step 2: スキルの設計判断" },
+        { "name": "distillation", "heading": "Step 3: 蒸留と記述" },
+        { "name": "priority", "heading": "蒸留の優先順位" },
+        { "name": "writing-patterns", "heading": "記述パターン集" },
+        {
+          "name": "content-guidelines",
+          "heading": "コンテンツ記述ガイドライン"
+        },
+        { "name": "runtime-constraints", "heading": "ランタイム環境制約" },
+        { "name": "anti-patterns", "heading": "記述のアンチパターン" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "デプロイとバリデーション",
+      "description": "スキルを適切な場所に配置し、仕様準拠を検証する。配置先、cross-surface、セキュリティ、バリデーション。",
+      "depends_on": [6],
+      "sections": [
+        { "name": "overview", "heading": "Phase 7: デプロイとバリデーション" },
+        { "name": "placement", "heading": "Step 1: 配置先の決定" },
+        { "name": "cross-surface", "heading": "Step 2: Cross-surface の考慮" },
+        { "name": "security", "heading": "Step 3: セキュリティ確認" },
+        { "name": "validation", "heading": "Step 4: バリデーション" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "評価と反復",
+      "description": "スキルが実際に機能するか検証し改善する。評価シナリオ、A/Bテスト、反復ループ、トラブルシューティング。",
+      "depends_on": [7],
+      "sections": [
+        { "name": "overview", "heading": "Phase 8: 評価と反復" },
+        { "name": "scenarios", "heading": "Step 1: 評価シナリオの構築" },
+        { "name": "ab-testing", "heading": "Step 2: A/B テストパターン" },
+        { "name": "iteration", "heading": "Step 3: 反復ループ" },
+        { "name": "troubleshooting", "heading": "トラブルシューティング" }
+      ]
+    }
+  ]
+}
