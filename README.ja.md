@@ -104,7 +104,6 @@ gemini mcp add skill-forge-mcp -- npx skill-forge-mcp
 - **進捗管理** — フェーズごとの完了状態を記録・参照
 - **プロンプトテンプレート** — `create_skill` / `resume_skill` でガイド付きワークフローを提供
 - **構造化出力** — 全ツールに `outputSchema` + `structuredContent` を搭載
-- **多言語対応** — `SKILL_FORGE_LANG=ja` で日本語コンテンツを配信
 - **状態永続化** — セッション間の進捗をオプションで保持
 - **低コスト** — コンテキストウィンドウへの固定コストは約 1,500 トークン
 
@@ -157,20 +156,6 @@ gemini mcp add skill-forge-mcp -- npx skill-forge-mcp
 }
 ```
 
-`SKILL_FORGE_LANG=ja` で日本語コンテンツを配信:
-
-```json
-{
-  "mcpServers": {
-    "skill-forge-mcp": {
-      "command": "npx",
-      "args": ["skill-forge-mcp"],
-      "env": { "SKILL_FORGE_LANG": "ja" }
-    }
-  }
-}
-```
-
 ## Development
 
 ```bash
@@ -192,7 +177,7 @@ src/
 ├── state.ts        # 状態管理・永続化
 ├── status.ts       # ステータステーブル
 ├── content/        # 英語コンテンツ（配信用）
-└── content-ja/     # 日本語オリジナル
+└── content-ja/     # 日本語翻訳（開発者参照用のみ）
 tests/
 ├── content.test.ts
 ├── search.test.ts

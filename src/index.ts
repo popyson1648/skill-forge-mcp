@@ -20,7 +20,7 @@ const state = loadState();
 // 1. Create server instance
 const server = new McpServer({
   name: "skill-forge-mcp",
-  version: "1.0.0",
+  version: "1.1.0",
 });
 
 // ─── 2. Register static Resources (10: manifest + 9 phases) ────────────────
