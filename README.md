@@ -104,7 +104,6 @@ Use `search_process` for keyword lookups across phases.
 - **Progress tracking** — record and query per-phase completion status
 - **Prompt templates** — `create_skill` and `resume_skill` prompts for guided workflows
 - **Structured output** — `outputSchema` + `structuredContent` on all tools for programmatic consumption
-- **i18n** — Japanese content available via `SKILL_FORGE_LANG=ja`
 - **State persistence** — optionally retain progress across sessions
 - **Low overhead** — ~1,500 token fixed cost to the context window
 
@@ -157,20 +156,6 @@ Set `SKILL_FORGE_PERSIST=true` to persist progress to `~/.skill-forge-mcp/state.
 }
 ```
 
-Set `SKILL_FORGE_LANG=ja` to serve Japanese content:
-
-```json
-{
-  "mcpServers": {
-    "skill-forge-mcp": {
-      "command": "npx",
-      "args": ["skill-forge-mcp"],
-      "env": { "SKILL_FORGE_LANG": "ja" }
-    }
-  }
-}
-```
-
 ## Development
 
 ```bash
@@ -192,7 +177,7 @@ src/
 ├── state.ts        # State management & persistence
 ├── status.ts       # Status table formatter
 ├── content/        # English content (served)
-└── content-ja/     # Japanese originals
+└── content-ja/     # Japanese translations (developer reference only)
 tests/
 ├── content.test.ts
 ├── search.test.ts

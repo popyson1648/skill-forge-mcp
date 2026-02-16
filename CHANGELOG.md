@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-02-17
+
+### Removed
+
+- `SKILL_FORGE_LANG` environment variable and all locale/i18n support — MCP server now always operates in English
+- Japanese content (`content-ja/`) is no longer served; it remains in the repo as a developer reference only
+- `content-ja` files removed from build output
+
+### Changed
+
+- CI now runs on `dev` branch pushes and pull requests (in addition to `main`)
+
 ## [1.0.0] - 2025-07-20
 
 ### Added
@@ -22,5 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Structured output with `outputSchema` on all tools
 - Comprehensive test suite (52 tests)
 
-[Unreleased]: https://github.com/popyson1648/skill-forge-mcp/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/popyson1648/skill-forge-mcp/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/popyson1648/skill-forge-mcp/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/popyson1648/skill-forge-mcp/releases/tag/v1.0.0
