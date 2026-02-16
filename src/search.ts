@@ -1,4 +1,4 @@
-import { getManifest, type Locale, loadPhaseContent } from "./content.js";
+import { getManifest, loadPhaseContent } from "./content.js";
 
 export interface SearchResult {
   phaseId: number;
@@ -10,21 +10,20 @@ export interface SearchResult {
 export function searchAllPhases(
   query: string,
   maxResults: number,
-  locale?: Locale,
 ): SearchResult[] {
   if (!query.trim()) {
     return [];
   }
   const lowerQuery = query.toLowerCase();
   const results: SearchResult[] = [];
-  const manifest = getManifest(locale);
+  const manifest = getManifest();
 
   for (
     let phaseId = 0;
     phaseId <= 8 && results.length < maxResults;
     phaseId++
   ) {
-    const content = loadPhaseContent(phaseId, locale);
+    const content = loadPhaseContent(phaseId);
     const lines = content.split("\n");
     const phaseManifest = manifest.phases[phaseId];
     let currentSection = "overview";

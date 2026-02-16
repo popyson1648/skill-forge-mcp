@@ -1,8 +1,8 @@
-import { getManifest, type Locale } from "./content.js";
+import { getManifest } from "./content.js";
 import type { ServerState } from "./state.js";
 
-export function formatStatusTable(state: ServerState, locale?: Locale): string {
-  const manifest = getManifest(locale);
+export function formatStatusTable(state: ServerState): string {
+  const manifest = getManifest();
   const header = "| Phase | Name | Status | Reads |";
   const separator = "|-------|------|--------|-------|";
   const rows = manifest.phases.map((phase: { id: number; name: string }) => {
