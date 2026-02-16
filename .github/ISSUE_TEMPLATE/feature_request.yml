@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve skill-forge-mcp!
+        Thanks for helping improve SkillForge MCP!
 
   - type: textarea
     id: problem

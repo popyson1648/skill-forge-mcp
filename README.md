@@ -1,8 +1,13 @@
-# skill-forge-mcp
+<p align="center">
+  <a href="https://www.npmjs.com/package/skill-forge-mcp"><img src="https://img.shields.io/npm/v/skill-forge-mcp.svg" alt="npm version"></a>
+  <a href="https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml"><img src="https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+</p>
 
-[![npm version](https://img.shields.io/npm/v/skill-forge-mcp.svg)](https://www.npmjs.com/package/skill-forge-mcp)
-[![CI](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/popyson1648/skill-forge-mcp/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<p align="center">
+  <img src="docs/images/logo.png" alt="SkillForge MCP" width="480">
+</p>
+
 
 [日本語](README.ja.md)
 
@@ -67,7 +72,7 @@ gemini mcp add skill-forge-mcp -- npx skill-forge-mcp
 
 Ask your agent:
 
-> "I want to create a skill for React component design. Follow the skill-forge-mcp process."
+> "I want to create a skill for React component design. Follow the SkillForge MCP process."
 
 The agent will automatically:
 
