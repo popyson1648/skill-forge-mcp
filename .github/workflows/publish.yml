@@ -15,7 +15,7 @@ jobs:
 
     steps:
       # Use v4 to avoid detached HEAD issue with release events (actions/checkout#2280)
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Use Node.js 24
         uses: actions/setup-node@v6
